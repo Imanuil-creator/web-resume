@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме и Дашборд - Имануил Максатов</title>
+    <title>Резюме - Имануил Максатов | Информационные системы</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         
         <header class="header">
             <!-- Картинка с alt атрибутом (ЛР №2) -->
-            <img src="https://via.placeholder.com/60" alt="Аватар профиля" class="profile-img">
+            <img src="https://via.placeholder.com/60" alt="Аватар профиля Имануила Максатова" class="profile-img">
             <h1>Имануил Максатов</h1>
         </header>
 
@@ -20,7 +20,7 @@
             <ul class="nav-list">
                 <li><a href="#about">Обо мне</a></li>
                 <li><a href="#portfolio">Проекты</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#contact">Связаться со мной</a></li>
             </ul>
         </nav>
 
@@ -28,91 +28,90 @@
             <section id="about">
                 <article>
                     <h2>Студент KazNU - Информационные системы</h2>
-                    <p>Изучаю объектно-ориентированное программирование, работу с базами данных и разработку веб-приложений.</p>
+                    <p>Изучаю объектно-ориентированное программирование на Java, разрабатываю приложения на Python (Flask, ML) и проектирую реляционные базы данных с использованием T-SQL.</p>
                 </article>
             </section>
 
             <section id="portfolio">
-                <h2>Сетка проектов</h2>
+                <h2>Портфолио проектов</h2>
                 <!-- Контейнер для Grid (ЛР №5) -->
                 <div class="portfolio-grid">
                     <div class="card">
                         <h3>Проект на Java</h3>
-                        <p>Обработка массивов и ООП.</p>
+                        <p>Объектно-ориентированное программирование и обработка массивов данных.</p>
                     </div>
                     <div class="card">
                         <h3>Проект на Python</h3>
-                        <p>Машинное обучение и Flask.</p>
+                        <p>Интеграция машинного обучения и создание веб-интерфейсов на Flask.</p>
                     </div>
                     <div class="card">
                         <h3>Базы данных</h3>
-                        <p>SQL запросы, триггеры, процедуры.</p>
+                        <p>Разработка транзакций, триггеров и хранимых процедур в MS SQL.</p>
                     </div>
                 </div>
             </section>
 
             <section id="contact">
-                <h2>Форма связи и анкетирования</h2>
-                <!-- Сложная форма (ЛР №3) -->
+                <h2>Предложение о сотрудничестве (Контакты работодателя)</h2>
+                <!-- Логичная форма связи (ЛР №3) -->
                 <form action="#" method="POST">
                     
-                    <!-- Базовые инпуты (ЛР №2) -->
+                    <!-- Контакты рекрутера (ЛР №2) -->
                     <fieldset>
-                        <legend>Контактные данные</legend>
+                        <legend>Контакты представителя компании</legend>
                         <div class="form-group">
-                            <label for="user-email">Email:</label>
-                            <input type="email" id="user-email" name="email" required>
+                            <label for="recruiter-name">Ваше имя / Компания:</label>
+                            <input type="text" id="recruiter-name" name="company" pattern="[A-Za-zА-Яа-яЁё0-9\s]+" minlength="2" maxlength="50" placeholder="Например, ТОО TechCorp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-email">Email для связи:</label>
+                            <input type="email" id="user-email" name="email" placeholder="hr@company.kz" required>
                         </div>
                         <div class="form-group">
                             <label for="user-tel">Телефон:</label>
-                            <input type="tel" id="user-tel" name="tel" required>
+                            <input type="tel" id="user-tel" name="tel" placeholder="+7 (700) 000-00-00" required>
                         </div>
                     </fieldset>
 
-                    <!-- Вариативные элементы и строгая валидация (ЛР №3) -->
+                    <!-- Параметры вакансии / проекта (ЛР №3) -->
                     <fieldset>
-                        <legend>Профессиональные навыки</legend>
+                        <legend>Детали предложения</legend>
                         
                         <div class="form-group">
-                            <label for="github-username">GitHub Username (только латиница и цифры):</label>
-                            <!-- Валидация через pattern, minlength, maxlength -->
-                            <input type="text" id="github-username" name="github" pattern="[A-Za-z0-9]+" minlength="3" maxlength="20" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exp-years">Опыт программирования (лет):</label>
+                            <label for="project-budget">Планируемый бюджет / Зарплата (в тенге):</label>
                             <!-- Числовые диапазоны -->
-                            <input type="number" id="exp-years" name="exp_years" min="0" max="10" required>
+                            <input type="number" id="project-budget" name="budget" min="100000" max="5000000" step="50000" placeholder="300000" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="main-stack">Основной язык:</label>
+                            <label for="main-stack">Интересующее направление:</label>
                             <!-- Список множественного выбора -->
                             <select id="main-stack" name="stack" required>
-                                <option value="">Выберите язык...</option>
-                                <option value="java">Java</option>
-                                <option value="python">Python</option>
-                                <option value="cpp">C++</option>
+                                <option value="">Выберите стек...</option>
+                                <option value="java">Java Backend</option>
+                                <option value="python">Python / ML</option>
+                                <option value="database">Базы данных / SQL</option>
+                                <option value="fullstack">Full-stack разработка</option>
                             </select>
                         </div>
                     </fieldset>
 
                     <fieldset>
-                        <legend>Предпочтения и согласие</legend>
+                        <legend>Формат работы и подтверждение</legend>
                         <div class="form-group">
-                            <p>Интересующее направление:</p>
+                            <p>Тип занятости:</p>
                             <!-- Зависимые переключатели -->
-                            <label><input type="radio" name="role" value="frontend"> Frontend</label>
-                            <label><input type="radio" name="role" value="backend" checked> Backend</label>
+                            <label><input type="radio" name="employment" value="remote"> Удаленная работа</label>
+                            <label><input type="radio" name="employment" value="office" checked> Офис / Гибрид</label>
                         </div>
 
                         <div class="form-group">
                             <!-- Независимые флажки -->
-                            <label><input type="checkbox" name="agree" required> Я согласен на обработку моих данных</label>
+                            <label><input type="checkbox" name="agree" required> Согласен на обработку персональных данных</label>
                         </div>
                     </fieldset>
 
-                    <button type="submit" class="submit-btn">Отправить данные</button>
+                    <button type="submit" class="submit-btn">Отправить предложение</button>
                 </form>
             </section>
         </main>
