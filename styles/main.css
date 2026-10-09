@@ -1,0 +1,189 @@
+/* Подключение шрифтов (ЛР №4) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Глобальные CSS переменные (ЛР №4) */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #ecf0f1;
+    --accent-color: #3498db;
+    --text-color: #333333;
+    --base-padding: 1.5rem;
+    --gap-size: 1.5rem;
+    --border-radius: 8px;
+}
+
+/* Обнуление и защищенная блочная модель (ЛР №4) */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    color: var(--text-color);
+    background-color: #e2e8f0;
+}
+
+/* 
+   ЛР №5: Макроструктура интерфейса (Grid) 
+   Зонирование: боковое меню, верхняя панель, контент
+*/
+.dashboard-layout {
+    display: grid;
+    /* Левая колонка 250px, правая занимает остаток (1fr) */
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto; /* Центрирование макро-контейнера (ЛР №4) */
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.header {
+    grid-area: header;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--base-padding);
+    /* Flexbox для локальных компонентов (ЛР №5) */
+    display: flex;
+    align-items: center; /* Выравнивание по второстепенной оси */
+    gap: 1rem;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--secondary-color);
+    padding: var(--base-padding);
+    border-right: 1px solid #bdc3c7;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Главная ось - вертикально */
+    gap: 1rem;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.nav-list a:hover {
+    color: var(--accent-color);
+}
+
+.main-content {
+    grid-area: main;
+    padding: 2rem; /* Охранные зоны содержимого (ЛР №4) */
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+/* 
+   ЛР №5: Сетка столбцов центральной области
+   Автоматическое перестроение ячеек 
+*/
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--gap-size); /* Охранные зазоры */
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: #f8f9fa;
+    padding: var(--base-padding);
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+    /* Координация распределения внутри карточки (ЛР №5) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Стилизация формы */
+fieldset {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: var(--border-radius);
+}
+
+legend {
+    font-weight: 700;
+    padding: 0 0.5em;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="tel"],
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem; /* Использование относительных единиц */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.submit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}

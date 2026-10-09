@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме и Дашборд - Имануил Максатов</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Главный контейнер для Grid сетки (ЛР №5) -->
+    <div class="dashboard-layout">
+        
+        <header class="header">
+            <!-- Картинка с alt атрибутом (ЛР №2) -->
+            <img src="https://via.placeholder.com/60" alt="Аватар профиля" class="profile-img">
+            <h1>Имануил Максатов</h1>
+        </header>
+
+        <nav class="sidebar">
+            <ul class="nav-list">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#portfolio">Проекты</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section id="about">
+                <article>
+                    <h2>Студент KazNU - Информационные системы</h2>
+                    <p>Изучаю объектно-ориентированное программирование, работу с базами данных и разработку веб-приложений.</p>
+                </article>
+            </section>
+
+            <section id="portfolio">
+                <h2>Сетка проектов</h2>
+                <!-- Контейнер для Grid (ЛР №5) -->
+                <div class="portfolio-grid">
+                    <div class="card">
+                        <h3>Проект на Java</h3>
+                        <p>Обработка массивов и ООП.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Проект на Python</h3>
+                        <p>Машинное обучение и Flask.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Базы данных</h3>
+                        <p>SQL запросы, триггеры, процедуры.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Форма связи и анкетирования</h2>
+                <!-- Сложная форма (ЛР №3) -->
+                <form action="#" method="POST">
+                    
+                    <!-- Базовые инпуты (ЛР №2) -->
+                    <fieldset>
+                        <legend>Контактные данные</legend>
+                        <div class="form-group">
+                            <label for="user-email">Email:</label>
+                            <input type="email" id="user-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-tel">Телефон:</label>
+                            <input type="tel" id="user-tel" name="tel" required>
+                        </div>
+                    </fieldset>
+
+                    <!-- Вариативные элементы и строгая валидация (ЛР №3) -->
+                    <fieldset>
+                        <legend>Профессиональные навыки</legend>
+                        
+                        <div class="form-group">
+                            <label for="github-username">GitHub Username (только латиница и цифры):</label>
+                            <!-- Валидация через pattern, minlength, maxlength -->
+                            <input type="text" id="github-username" name="github" pattern="[A-Za-z0-9]+" minlength="3" maxlength="20" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exp-years">Опыт программирования (лет):</label>
+                            <!-- Числовые диапазоны -->
+                            <input type="number" id="exp-years" name="exp_years" min="0" max="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="main-stack">Основной язык:</label>
+                            <!-- Список множественного выбора -->
+                            <select id="main-stack" name="stack" required>
+                                <option value="">Выберите язык...</option>
+                                <option value="java">Java</option>
+                                <option value="python">Python</option>
+                                <option value="cpp">C++</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Предпочтения и согласие</legend>
+                        <div class="form-group">
+                            <p>Интересующее направление:</p>
+                            <!-- Зависимые переключатели -->
+                            <label><input type="radio" name="role" value="frontend"> Frontend</label>
+                            <label><input type="radio" name="role" value="backend" checked> Backend</label>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Независимые флажки -->
+                            <label><input type="checkbox" name="agree" required> Я согласен на обработку моих данных</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="submit-btn">Отправить данные</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Имануил Максатов. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
